@@ -1,14 +1,10 @@
 import Image from "next/image";
-import DraggableImage from "@/components/DraggableImage";
 
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-white text-gray-900 flex flex-col items-center">
       {/* Hero Section */}
-      <DraggableImage src="/clothes/blackhoodie.png" alt="Black Hoodie" className="top-10 left-10 w-32" />
-      <DraggableImage src="/clothes/whitesneakers.png" alt="White Sneakers" className="top-20 left-60 w-28" />
-      <DraggableImage src="/clothes/jeans.png" alt="Blue Jeans" className="top-40 left-40 w-32" />
       <section className="w-full max-w-5xl px-6 py-24 text-center">
         <img src="/lookbookLogo.png" alt="The Lookbook logo" className="mx-auto w-40 mb-6" />
         <h1 className="text-5xl font-bold">Your closet, in your pocket.</h1>
@@ -40,8 +36,8 @@ export default function Home() {
       <section className="w-full max-w-5xl px-6 py-16 text-center">
         <h2 className="text-3xl font-bold mb-8">Preview the App</h2>
         <div className="flex justify-center gap-6">
-          <img src="/screenshot1.png" alt="App Screenshot 1" className="rounded-xl shadow-lg w-60" />
-          <img src="/screenshot2.png" alt="App Screenshot 2" className="rounded-xl shadow-lg w-60" />
+          <img src="/LoginScreenPreview.png" alt="App Screenshot 1" className="rounded-xl shadow-lg w-60" />
+          <img src="/HomeScreenPreview.png" alt="App Screenshot 2" className="rounded-xl shadow-lg w-60" />
         </div>
       </section>
 
