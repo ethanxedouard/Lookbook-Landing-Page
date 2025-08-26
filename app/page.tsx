@@ -35,6 +35,7 @@ function EmailCapture({ emailRef }: { emailRef: React.RefObject<HTMLElement> }) 
 
       if (res.ok) {
         setSubmitted(true);
+        setEmail("");
       } else {
         const { error } = await res.json();
         alert(error || "Error submitting email. Please try again.");
@@ -60,7 +61,7 @@ function EmailCapture({ emailRef }: { emailRef: React.RefObject<HTMLElement> }) 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="mt-6 flex justify-center gap-3"
+            className="mt-6 flex justify-center gap-3 flex-col sm:flex-row items-center"
           >
             <input
               type="email"
@@ -105,10 +106,12 @@ export default function Home() {
       {/* Hero Section */}
       <FadeInSection>
         <section className="w-full max-w-5xl px-6 py-24 text-center">
-          <img
+          <Image
             src="/lookbookLogo.png"
             alt="The Lookbook logo"
-            className="mx-auto w-40 mb-6"
+            width={160}
+            height={160}
+            className="mx-auto mb-6"
           />
           <h1 className="text-5xl font-bold">Your closet, in your pocket.</h1>
           <p className="mt-4 text-lg text-gray-600">
@@ -126,24 +129,28 @@ export default function Home() {
       {/* Features */}
       <FadeInSection>
         <section className="w-full max-w-5xl px-6 py-16 grid md:grid-cols-3 gap-10 text-center">
-          <div className="p-6 rounded-2xl shadow-md bg-gray-50">
-            <h3 className="font-semibold text-xl">Digitize Your Closet</h3>
-            <p className="mt-2 text-gray-600">
-              Upload and organize all your pieces in one place.
-            </p>
-          </div>
-          <div className="p-6 rounded-2xl shadow-md bg-gray-50">
-            <h3 className="font-semibold text-xl">Plan Outfits</h3>
-            <p className="mt-2 text-gray-600">
-              Create and save looks for any occasion.
-            </p>
-          </div>
-          <div className="p-6 rounded-2xl shadow-md bg-gray-50">
-            <h3 className="font-semibold text-xl">Carry It Anywhere</h3>
-            <p className="mt-2 text-gray-600">
-              Your wardrobe, always with you on your phone.
-            </p>
-          </div>
+          {[
+            {
+              title: "Digitize Your Closet",
+              description: "Upload and organize all your pieces in one place.",
+            },
+            {
+              title: "Plan Outfits",
+              description: "Create and save looks for any occasion.",
+            },
+            {
+              title: "Carry It Anywhere",
+              description: "Your wardrobe, always with you on your phone.",
+            },
+          ].map((feature) => (
+            <div
+              key={feature.title}
+              className="p-6 rounded-2xl shadow-md bg-gray-50"
+            >
+              <h3 className="font-semibold text-xl">{feature.title}</h3>
+              <p className="mt-2 text-gray-600">{feature.description}</p>
+            </div>
+          ))}
         </section>
       </FadeInSection>
 
@@ -151,41 +158,36 @@ export default function Home() {
       <section className="w-full max-w-5xl px-6 py-16 text-center">
         <h2 className="text-3xl font-bold mb-10">How It Works</h2>
         <div className="grid md:grid-cols-3 gap-10">
-          <FadeInSection>
-            <div className="flex flex-col items-center">
-              <div className="w-16 h-16 flex items-center justify-center rounded-full bg-black text-white text-2xl font-bold mb-4">
-                1
+          {[
+            {
+              step: 1,
+              title: "Upload",
+              description:
+                "Snap a pic of your clothes or import from your camera roll.",
+            },
+            {
+              step: 2,
+              title: "Organize",
+              description:
+                "Sort by category, color, or season with smart tags.",
+            },
+            {
+              step: 3,
+              title: "Style",
+              description:
+                "Mix & match pieces to plan outfits and save your favorite looks.",
+            },
+          ].map((item) => (
+            <FadeInSection key={item.step}>
+              <div className="flex flex-col items-center">
+                <div className="w-16 h-16 flex items-center justify-center rounded-full bg-black text-white text-2xl font-bold mb-4">
+                  {item.step}
+                </div>
+                <h3 className="font-semibold text-xl">{item.title}</h3>
+                <p className="mt-2 text-gray-600">{item.description}</p>
               </div>
-              <h3 className="font-semibold text-xl">Upload</h3>
-              <p className="mt-2 text-gray-600">
-                Snap a pic of your clothes or import from your camera roll.
-              </p>
-            </div>
-          </FadeInSection>
-
-          <FadeInSection>
-            <div className="flex flex-col items-center">
-              <div className="w-16 h-16 flex items-center justify-center rounded-full bg-black text-white text-2xl font-bold mb-4">
-                2
-              </div>
-              <h3 className="font-semibold text-xl">Organize</h3>
-              <p className="mt-2 text-gray-600">
-                Sort by category, color, or season with smart tags.
-              </p>
-            </div>
-          </FadeInSection>
-
-          <FadeInSection>
-            <div className="flex flex-col items-center">
-              <div className="w-16 h-16 flex items-center justify-center rounded-full bg-black text-white text-2xl font-bold mb-4">
-                3
-              </div>
-              <h3 className="font-semibold text-xl">Style</h3>
-              <p className="mt-2 text-gray-600">
-                Mix & match pieces to plan outfits and save your favorite looks.
-              </p>
-            </div>
-          </FadeInSection>
+            </FadeInSection>
+          ))}
         </div>
       </section>
 
@@ -193,16 +195,20 @@ export default function Home() {
       <FadeInSection>
         <section className="w-full max-w-5xl px-6 py-16 text-center">
           <h2 className="text-3xl font-bold mb-8">Preview the App</h2>
-          <div className="flex justify-center gap-6">
-            <img
+          <div className="flex justify-center gap-6 flex-wrap">
+            <Image
               src="/LoginScreenPreview.png"
               alt="App Screenshot 1"
-              className="rounded-xl shadow-lg w-60"
+              width={240}
+              height={480}
+              className="rounded-xl shadow-lg"
             />
-            <img
+            <Image
               src="/HomeScreenPreview.png"
               alt="App Screenshot 2"
-              className="rounded-xl shadow-lg w-60"
+              width={240}
+              height={480}
+              className="rounded-xl shadow-lg"
             />
           </div>
         </section>
@@ -213,31 +219,23 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="mt-20 py-10 text-center text-gray-500">
-        <div className="flex justify-center gap-6 mb-4">
-          <a
-            href="https://www.instagram.com/trythelookbook/"
-            target="_blank"
-            className="hover:text-black"
-          >
-            Instagram
-          </a>
-          <a
-            href="https://www.tiktok.com/@trythelookbook?lang=en"
-            target="_blank"
-            className="hover:text-black"
-          >
-            TikTok
-          </a>
-          <a
-            href="https://x.com/trythelookbook"
-            target="_blank"
-            className="hover:text-black"
-          >
-            X
-          </a>
-          <a href="mailto:trythelookbook@gmail.com" className="hover:text-black">
-            Contact
-          </a>
+        <div className="flex justify-center gap-6 mb-4 flex-wrap">
+          {[
+            { href: "https://www.instagram.com/trythelookbook/", label: "Instagram" },
+            { href: "https://www.tiktok.com/@trythelookbook?lang=en", label: "TikTok" },
+            { href: "https://x.com/trythelookbook", label: "X" },
+            { href: "mailto:trythelookbook@gmail.com", label: "Contact" },
+          ].map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-black"
+            >
+              {link.label}
+            </a>
+          ))}
         </div>
         <p>© {new Date().getFullYear()} The Lookbook · All rights reserved</p>
       </footer>
