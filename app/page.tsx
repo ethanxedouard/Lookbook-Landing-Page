@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 // Fade-in wrapper
 export function FadeInSection({ children }: { children: React.ReactNode }) {
@@ -18,21 +18,39 @@ export function FadeInSection({ children }: { children: React.ReactNode }) {
   );
 }
 
-
 // Animated Email Capture CTA
-function EmailCapture() {
+function EmailCapture({ emailRef }: { emailRef: React.RefObject<HTMLElement> }) {
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // 👉 connect to your backend / waitlist API here
-    setSubmitted(true);
+
+    try {
+      const res = await fetch("/api/waitlist", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+
+      if (res.ok) {
+        setSubmitted(true);
+      } else {
+        const { error } = await res.json();
+        alert(error || "Error submitting email. Please try again.");
+      }
+    } catch (err) {
+      console.error("Waitlist submission error:", err);
+      alert("Something went wrong. Please try again later.");
+    }
   };
 
   return (
     <FadeInSection>
-      <section className="w-full max-w-5xl px-6 py-16 text-center bg-gray-100 rounded-2xl">
+      <section
+        ref={emailRef}
+        className="w-full max-w-5xl px-6 py-16 text-center bg-gray-100 rounded-2xl"
+      >
         <h2 className="text-3xl font-bold">Be the first to try The Lookbook</h2>
         <p className="mt-2 text-gray-600">Coming soon on iOS and Android</p>
 
@@ -76,6 +94,12 @@ function EmailCapture() {
 }
 
 export default function Home() {
+  const emailRef = useRef<HTMLElement>(null);
+
+  const scrollToWaitlist = () => {
+    emailRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <main className="min-h-screen bg-white text-gray-900 flex flex-col items-center">
       {/* Hero Section */}
@@ -90,7 +114,10 @@ export default function Home() {
           <p className="mt-4 text-lg text-gray-600">
             Organize, save, and style your outfits effortlessly.
           </p>
-          <button className="mt-6 px-8 py-3 bg-black text-white rounded-xl text-lg font-medium hover:bg-gray-800 transition">
+          <button
+            onClick={scrollToWaitlist}
+            className="mt-6 px-8 py-3 bg-black text-white rounded-xl text-lg font-medium hover:bg-gray-800 transition"
+          >
             Join the Waitlist
           </button>
         </section>
@@ -162,7 +189,6 @@ export default function Home() {
         </div>
       </section>
 
-
       {/* Screenshots / Demo */}
       <FadeInSection>
         <section className="w-full max-w-5xl px-6 py-16 text-center">
@@ -183,7 +209,7 @@ export default function Home() {
       </FadeInSection>
 
       {/* Email Capture CTA */}
-      <EmailCapture />
+      <EmailCapture emailRef={emailRef} />
 
       {/* Footer */}
       <footer className="mt-20 py-10 text-center text-gray-500">
