@@ -19,7 +19,7 @@ export function FadeInSection({ children }: { children: React.ReactNode }) {
 }
 
 // Animated Email Capture CTA
-function EmailCapture({ emailRef }: { emailRef: React.RefObject<HTMLElement> }) {
+function EmailCapture({ emailRef }: { emailRef: React.RefObject<HTMLElement | null> }) {
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
 
@@ -95,7 +95,7 @@ function EmailCapture({ emailRef }: { emailRef: React.RefObject<HTMLElement> }) 
 }
 
 export default function Home() {
-  const emailRef = useRef<HTMLElement>(null);
+  const emailRef = useRef<HTMLElement | null>(null);
 
   const scrollToWaitlist = () => {
     emailRef.current?.scrollIntoView({ behavior: "smooth" });
