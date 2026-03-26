@@ -103,6 +103,37 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-white text-gray-900 flex flex-col items-center">
+
+      {/* 🔥 Styled Beta Banner */}
+      <div className="w-full bg-gradient-to-r from-black via-gray-900 to-black text-white py-3 px-4 text-sm flex justify-center items-center gap-3 relative overflow-hidden">
+
+        {/* Glow effect */}
+        <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_center,white,transparent_70%)] animate-pulse" />
+
+        <span className="relative z-10 flex items-center gap-3 text-center flex-wrap justify-center">
+
+          {/* Beta pill */}
+          <span className="px-3 py-1 text-xs font-semibold bg-white text-black rounded-full">
+            BETA
+          </span>
+
+          {/* Text */}
+          <span className="font-medium">
+            We’re currently in beta testing — get early access
+          </span>
+
+          {/* CTA */}
+          <a
+            href="https://testflight.apple.com/join/eGXwRXrS"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline hover:text-gray-300 transition"
+          >
+            Join now →
+          </a>
+        </span>
+      </div>
+
       {/* Hero Section */}
       <FadeInSection>
         <section className="w-full max-w-5xl px-6 py-24 text-center">
@@ -117,12 +148,24 @@ export default function Home() {
           <p className="mt-4 text-lg text-gray-600">
             Organize, save, and style your outfits effortlessly.
           </p>
-          <button
-            onClick={scrollToWaitlist}
-            className="mt-6 px-8 py-3 bg-black text-white rounded-xl text-lg font-medium hover:bg-gray-800 transition"
-          >
-            Join the Waitlist
-          </button>
+
+          <div className="mt-6 flex flex-col sm:flex-row gap-4 justify-center">
+            <button
+              onClick={scrollToWaitlist}
+              className="px-8 py-3 bg-black text-white rounded-xl text-lg font-medium hover:bg-gray-800 transition"
+            >
+              Join the Waitlist
+            </button>
+
+            <a
+              href="https://testflight.apple.com/join/eGXwRXrS"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-8 py-3 border border-black rounded-xl text-lg font-medium hover:bg-gray-100 transition"
+            >
+              Join Beta Testing
+            </a>
+          </div>
         </section>
       </FadeInSection>
 
@@ -191,7 +234,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Screenshots / Demo */}
+      {/* Screenshots */}
       <FadeInSection>
         <section className="w-full max-w-5xl px-6 py-16 text-center">
           <h2 className="text-3xl font-bold mb-8">Preview the App</h2>
@@ -214,7 +257,7 @@ export default function Home() {
         </section>
       </FadeInSection>
 
-      {/* Email Capture CTA */}
+      {/* Email Capture */}
       <EmailCapture emailRef={emailRef} />
 
       {/* Footer */}
@@ -224,6 +267,7 @@ export default function Home() {
             { href: "https://www.instagram.com/trythelookbook/", label: "Instagram" },
             { href: "https://www.tiktok.com/@trythelookbook?lang=en", label: "TikTok" },
             { href: "https://x.com/trythelookbook", label: "X" },
+            { href: "https://testflight.apple.com/join/YOUR_LINK_HERE", label: "Beta" },
             { href: "mailto:trythelookbook@gmail.com", label: "Contact" },
           ].map((link) => (
             <a
