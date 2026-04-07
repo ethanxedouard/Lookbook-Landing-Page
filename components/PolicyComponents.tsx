@@ -36,7 +36,7 @@ export function PolicySubhead({ children }: { children: ReactNode }) {
   );
 }
 
-export function PolicyList({ items }: { items: string[] }) {
+export function PolicyList({ items }: { items: ReactNode[] }) {
   return (
     <ul className="space-y-2 mt-1">
       {items.map((item, i) => (
@@ -45,7 +45,7 @@ export function PolicyList({ items }: { items: string[] }) {
           className="flex gap-3 text-sm text-stone leading-relaxed font-light font-dm"
         >
           <span className="text-accent text-xs mt-1 flex-shrink-0">→</span>
-          <span dangerouslySetInnerHTML={{ __html: item }} />
+          <span>{item}</span>
         </li>
       ))}
     </ul>

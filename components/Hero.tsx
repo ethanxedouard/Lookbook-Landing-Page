@@ -1,24 +1,36 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, Variants, Easing } from "framer-motion";
 import Image from "next/image";
 
-const staggerChildren = {
-  animate: { transition: { staggerChildren: 0.1 } },
+// Stagger children animation
+const staggerChildren: Variants = {
+  animate: {
+    transition: { staggerChildren: 0.1 },
+  },
 };
 
-const fadeUp = {
+// Define a proper easing type
+const easeOut: Easing = "easeOut";
+
+// Fade-up animation for text
+const fadeUp: Variants = {
   initial: { opacity: 0, y: 24 },
   animate: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, ease: "easeOut" },
+    transition: { duration: 0.6, ease: easeOut },
   },
 };
 
-const phoneFade = {
+// Fade animation for phone image
+const phoneFade: Variants = {
   initial: { opacity: 0, y: 40 },
-  animate: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
+  animate: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.8, ease: easeOut },
+  },
 };
 
 export default function Hero() {
@@ -63,10 +75,11 @@ export default function Hero() {
           variants={fadeUp}
           className="text-base sm:text-lg text-stone leading-relaxed max-w-[480px] mb-8 font-light"
         >
-          Organize your wardrobe, style outfits with ease, and save your favorite looks—all in one place.
+          Organize your wardrobe, style outfits with ease, and save your favorite
+          looks—all in one place.
         </motion.p>
 
-        {/* Updated Buttons */}
+        {/* Buttons */}
         <motion.div variants={fadeUp} className="flex flex-wrap gap-3">
           <a
             href="#beta"
@@ -84,26 +97,9 @@ export default function Hero() {
             Explore Features
           </a>
         </motion.div>
-
-        {/* <motion.div variants={fadeUp} className="flex items-center gap-3 mt-8">
-          <div className="flex">
-            {["👩", "👱", "🧑", "👩‍🦱"].map((a, i) => (
-              <span
-                key={i}
-                className="w-8 h-8 rounded-full border-2 border-warm-white bg-sand flex items-center justify-center text-sm -ml-2 first:ml-0"
-              >
-                {a}
-              </span>
-            ))}
-          </div>
-          <p className="text-sm text-stone">
-            <strong className="text-ink">50,000+</strong> style-lovers on
-            Lookbook
-          </p>
-        </motion.div> */}
       </motion.div>
 
-      {/* Right: Single combined phone image */}
+      {/* Right: Phone Image */}
       <motion.div
         variants={phoneFade}
         initial="initial"
@@ -112,7 +108,7 @@ export default function Hero() {
       >
         <div className="relative w-full h-full max-w-[800px]">
           <Image
-            src="/Preview.png" 
+            src="/Preview.png"
             alt="App previews"
             fill
             className="object-contain"
