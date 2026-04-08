@@ -153,7 +153,7 @@ export default function TermsPage() {
         </PolicyPara>
         <PolicyList
           items={[
-            "Email: <strong>trythelookbook@gmail.com</strong>",
+            <span key="email">Email: <strong>trythelookbook@gmail.com</strong></span>,
           ]}
         />
       </PolicySection>

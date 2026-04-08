@@ -2,10 +2,10 @@ import Link from "next/link";
 import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import React, { ReactNode } from "react";
+import React, { ReactNode, FC } from "react";
 
 interface PolicyLayoutProps {
-  // Removed badge from interface
+  badge?: ReactNode; // optional badge
   title: string;
   meta?: string;
   heroBg?: "light" | "dark";
@@ -13,14 +13,15 @@ interface PolicyLayoutProps {
   sidebarLinks?: { href: string; label: string }[];
 }
 
-export default function PolicyLayout({
-  // Removed badge from destructuring
+// Use FC<Props> so children is automatically recognized
+const PolicyLayout: FC<PolicyLayoutProps> = ({
+  badge,
   title,
   meta,
   heroBg = "light",
   children,
   sidebarLinks,
-}: PolicyLayoutProps) {
+}) => {
   return (
     <>
       <Navbar />
@@ -33,8 +34,17 @@ export default function PolicyLayout({
               : "bg-gradient-to-br from-cream to-blush/60"
           }`}
         >
-          {/* Badge span section removed entirely from here */}
-          
+          {badge && (
+            <span
+              className={`inline-flex items-center gap-2 text-xs font-medium tracking-widest uppercase px-4 py-1.5 rounded-full mb-5 border ${
+                heroBg === "dark"
+                  ? "bg-accent/20 text-accent border-accent/20"
+                  : "bg-accent-light text-accent border-accent/20"
+              }`}
+            >
+              {badge}
+            </span>
+          )}
           <h1
             className={`font-playfair text-3xl sm:text-5xl mb-3 ${
               heroBg === "dark" ? "text-cream" : "text-ink"
@@ -85,4 +95,6 @@ export default function PolicyLayout({
       <Footer />
     </>
   );
-}
+};
+
+export default PolicyLayout;
