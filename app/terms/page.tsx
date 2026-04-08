@@ -42,7 +42,7 @@ export default function TermsPage() {
         </p>
       </div>
 
-      <PolicySection id="intellectual-property" icon="©" title="Intellectual Property">
+      <PolicySection id="intellectual-property"title="Intellectual Property">
         <PolicyPara>
           Unauthorized copying or modification of the Application, any part of the Application, or our trademarks is strictly prohibited. 
         </PolicyPara>
@@ -55,7 +55,7 @@ export default function TermsPage() {
         />
       </PolicySection>
 
-      <PolicySection id="changes-app" icon="⚙️" title="Changes to the Application">
+      <PolicySection id="changes-app" title="Changes to the Application">
         <PolicyPara>
           The Service Provider reserves the right to modify the Application or charge for its services at any time and for any reason. 
         </PolicyPara>
@@ -64,7 +64,7 @@ export default function TermsPage() {
         </HighlightBox>
       </PolicySection>
 
-      <PolicySection id="data-security" icon="🛡" title="Personal Data & Security">
+      <PolicySection id="data-security" title="Personal Data & Security">
         <PolicyPara>
           The Application processes personal data provided to the Service Provider to deliver the Service. It is your responsibility to maintain the security of your phone and access to the Application.
         </PolicyPara>
@@ -74,7 +74,7 @@ export default function TermsPage() {
         </PolicyPara>
       </PolicySection>
 
-      <PolicySection id="camera-photos" icon="📸" title="Camera and Photo Library">
+      <PolicySection id="camera-photos" title="Camera and Photo Library">
         <PolicyPara>
           The Application requires access to your device&apos;s camera and photo library to allow you to upload images of your clothing items.
         </PolicyPara>
@@ -90,13 +90,13 @@ export default function TermsPage() {
         </PolicyPara>
       </PolicySection>
 
-      <PolicySection id="storage" icon="💾" title="Data Storage">
+      <PolicySection id="storage" title="Data Storage">
         <PolicyPara>
           <strong>The Application stores all data locally on your device only.</strong> This includes all clothing items, outfit combinations, and photos you upload. No user content is transmitted to or stored on any external server.
         </PolicyPara>
       </PolicySection>
 
-      <PolicySection id="third-party" icon="🔗" title="Third Party Services">
+      <PolicySection id="third-party" title="Third Party Services">
         <PolicyPara>
           The Application utilizes third-party services that have their own Terms and Conditions:
         </PolicyPara>
@@ -107,7 +107,7 @@ export default function TermsPage() {
         />
       </PolicySection>
 
-      <PolicySection id="internet" icon="🌐" title="Internet Connection">
+      <PolicySection id="internet" title="Internet Connection">
         <PolicyPara>
           The Application functions primarily offline. An internet connection may be required for initial download and app updates only.
         </PolicyPara>
@@ -116,7 +116,7 @@ export default function TermsPage() {
         </PolicyPara>
       </PolicySection>
 
-      <PolicySection id="responsibilities" icon="👤" title="Your Responsibilities">
+      <PolicySection id="responsibilities" title="Your Responsibilities">
         <PolicyPara>
           The Service Provider cannot assume responsibility for aspects of usage within your control:
         </PolicyPara>
@@ -128,7 +128,7 @@ export default function TermsPage() {
         />
       </PolicySection>
 
-      <PolicySection id="termination" icon="🚪" title="Updates & Termination">
+      <PolicySection id="termination" title="Updates & Termination">
         <PolicyPara>
           You agree to accept updates to the Application when offered. The Service Provider may also cease providing the Application at any time without notice.
         </PolicyPara>
@@ -141,13 +141,13 @@ export default function TermsPage() {
         />
       </PolicySection>
 
-      <PolicySection id="children" icon="👶" title="Children">
+      <PolicySection id="children" title="Children">
         <PolicyPara>
           The Application does not knowingly solicit data from or market to children under 13. If you are aware that a child under 13 has provided personal information, please contact us.
         </PolicyPara>
       </PolicySection>
 
-      <PolicySection id="contact" icon="📬" title="Contact Us">
+      <PolicySection id="contact" title="Contact Us">
         <PolicyPara>
           If you have any questions or suggestions about these Terms, please reach out:
         </PolicyPara>

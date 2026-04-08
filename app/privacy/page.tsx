@@ -28,7 +28,6 @@ const sidebarLinks = [
 export default function PrivacyPage() {
   return (
     <PolicyLayout
-      badge="🔒 Privacy"
       title="Privacy Policy"
       meta="Effective: April 5, 2026"
       heroBg="light"
@@ -41,7 +40,7 @@ export default function PrivacyPage() {
         </p>
       </div>
 
-      <PolicySection id="collection" icon="📋" title="Information Collection and Use">
+      <PolicySection id="collection" title="Information Collection and Use">
         <PolicyPara>
           The Application collects information when you download and use it. This information may include:
         </PolicyPara>
@@ -62,7 +61,7 @@ export default function PrivacyPage() {
         </HighlightBox>
       </PolicySection>
 
-      <PolicySection id="camera" icon="📸" title="Camera and Photo Library Access">
+      <PolicySection id="camera" title="Camera and Photo Library Access">
         <PolicyPara>
           The Application requires access to your device&apos;s camera and photo library to allow you to upload images of your clothing items. 
         </PolicyPara>
@@ -79,13 +78,13 @@ export default function PrivacyPage() {
         </PolicyPara>
       </PolicySection>
 
-      <PolicySection id="storage" icon="💾" title="Data Storage">
+      <PolicySection id="storage" title="Data Storage">
         <PolicyPara>
           <strong>The Application stores all data locally on your device only.</strong> This includes all clothing items, outfit combinations, and photos you upload. No personal data, images, or user content is transmitted to or stored on any external server or cloud service.
         </PolicyPara>
       </PolicySection>
 
-      <PolicySection id="third-party" icon="🔗" title="Third Party Access">
+      <PolicySection id="third-party" title="Third Party Access">
         <PolicyPara>
           Only aggregated, anonymized data is periodically transmitted to external services to aid the Service Provider in improving the Application. The Application utilizes the following third-party service:
         </PolicyPara>
@@ -100,37 +99,37 @@ export default function PrivacyPage() {
         </PolicyPara>
       </PolicySection>
 
-      <PolicySection id="opt-out" icon="✋" title="Opt-Out Rights">
+      <PolicySection id="opt-out" title="Opt-Out Rights">
         <PolicyPara>
           You can stop all collection of information by the Application easily by uninstalling it. You may use the standard uninstall processes available as part of your mobile device or via the mobile application marketplace.
         </PolicyPara>
       </PolicySection>
 
-      <PolicySection id="retention" icon="🗄" title="Data Retention Policy">
+      <PolicySection id="retention" title="Data Retention Policy">
         <PolicyPara>
           The Service Provider will retain User Provided data for as long as you use the Application. Since all data is stored locally on your device, you may delete the Application at any time to remove all associated data. 
         </PolicyPara>
       </PolicySection>
 
-      <PolicySection id="children" icon="👶" title="Children">
+      <PolicySection id="children" title="Children">
         <PolicyPara>
           The Application does not knowingly solicit data from or market to children under 13. If the Service Provider discovers that a child under 13 has provided personal information, it will be deleted immediately from our servers (where applicable).
         </PolicyPara>
       </PolicySection>
 
-      <PolicySection id="security" icon="🛡" title="Security">
+      <PolicySection id="security" title="Security">
         <PolicyPara>
           Since all data is stored locally on your device, your information is protected by your device&apos;s built-in security features. The Service Provider provides physical, electronic, and procedural safeguards to protect information maintained, though no system can prevent all potential breaches.
         </PolicyPara>
       </PolicySection>
 
-      <PolicySection id="changes" icon="📝" title="Changes">
+      <PolicySection id="changes" title="Changes">
         <PolicyPara>
           This Privacy Policy may be updated from time to time. The Service Provider will notify you of any changes by updating this page. Continued use is deemed approval of all changes.
         </PolicyPara>
       </PolicySection>
 
-      <PolicySection id="contact" icon="📬" title="Contact Us">
+      <PolicySection id="contact" title="Contact Us">
         <PolicyPara>
           If you have any questions regarding privacy while using the Application, please reach out:
         </PolicyPara>

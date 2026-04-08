@@ -5,7 +5,6 @@ const testimonials = [
     stars: 5,
     quote:
       "I used to spend 20 minutes every morning deciding what to wear. Now Lookbook suggests something perfect every day. It's genuinely changed my mornings.",
-    avatar: "🧑🏿‍🦱",
     name: "Matthew M.",
     handle: "@matt._06",
   },
@@ -13,7 +12,6 @@ const testimonials = [
     stars: 5,
     quote:
       "I didn’t realize how many clothes I wasn’t wearing until I used The Lookbook. Now I actually use everything in my closet.",
-    avatar: "🧑🏿‍🦱",
     name: "Samba S.",
     handle: "@samba.11_lfs",
   },
@@ -21,7 +19,6 @@ const testimonials = [
     stars: 5,
     quote:
       "I love being able to see my whole closet in one place. It’s way easier to decide what to wear.",
-    avatar: "👩🏽‍🦱",
     name: "Legacy M.",
     handle: "@legacyalivia",
   },
@@ -67,11 +64,8 @@ export default function Testimonials() {
                 &ldquo;{t.quote}&rdquo;
               </blockquote>
 
-              {/* User Info */}
-              <div className="flex items-center gap-4 pt-4 border-t border-sand/30">
-                <div className="w-11 h-11 rounded-full bg-sand/40 border border-sand/50 flex items-center justify-center text-xl shadow-sm">
-                  {t.avatar}
-                </div>
+              {/* User Info (Emoji and circle removed) */}
+              <div className="pt-4 border-t border-sand/30">
                 <div>
                   <p className="text-sm font-semibold text-ink">
                     {t.name}

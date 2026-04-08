@@ -2,18 +2,16 @@ import { ReactNode } from "react";
 
 interface PolicySectionProps {
   id: string;
-  icon: string;
   title: string;
   children: ReactNode;
 }
 
-export function PolicySection({ id, icon, title, children }: PolicySectionProps) {
+export function PolicySection({ id, title, children }: PolicySectionProps) {
   return (
     <section
       id={id}
       className="mb-10 pb-10 border-b border-sand/40 last:border-b-0 last:mb-0 last:pb-0"
     >
-      <span className="text-2xl mb-3 block">{icon}</span>
       <h2 className="font-playfair text-2xl text-ink mb-4">{title}</h2>
       <div className="space-y-4">{children}</div>
     </section>

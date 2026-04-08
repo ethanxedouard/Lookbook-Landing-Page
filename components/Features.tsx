@@ -1,26 +1,27 @@
 import FadeInSection from "./FadeInSection";
+import Image from "next/image";
 
 const features = [
   {
-    icon: "📅",
+    icon: "/calendar.svg",
     title: "Outfit Builder",
     description:
       "Effortlessly mix and match pieces from your closet with an intuitive interface. Create, experiment, and save your favorite looks in seconds.",
   },
   {
-    icon: "🗂",
+    icon: "/folder.svg",
     title: "Wardrobe Tracking",
     description:
       "Digitize your entire closet and keep track of every item. Stay organized and always know what you own.",
   },
   {
-    icon: "📸",
+    icon: "/photo.svg",
     title: "Quick Upload",
     description:
       "Snap a photo or import images to instantly add items to your closet—no hassle, just style.",
   },
   {
-    icon: "⚡️",
+    icon: "/bolt.svg",
     title: "Fast & Offline Access",
     description:
       "Enjoy lightning-fast performance and full access to your closet—even without an internet connection.",
@@ -48,18 +49,22 @@ export default function Features() {
         </p>
       </FadeInSection>
 
-      {/* Grid changed to a consistent 4-column layout on large screens */}
       <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {features.map((f, i) => (
           <FadeInSection key={f.title} delay={0.1 + i * 0.1}>
             <div className="h-full bg-warm-white border border-sand/50 rounded-2xl p-7 relative overflow-hidden group hover:-translate-y-1 hover:shadow-xl hover:shadow-ink/5 transition-all duration-300">
               
-              {/* Subtle hover accent line */}
               <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-accent/40 to-blush/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               
-              {/* Icon Container */}
-              <div className="w-12 h-12 rounded-xl bg-accent-light flex items-center justify-center text-xl mb-6 group-hover:scale-110 transition-transform duration-300">
-                {f.icon}
+              <div className="w-12 h-12 rounded-xl bg-accent-light flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                <Image 
+                  src={f.icon}
+                  alt="" 
+                  width={28} 
+                  height={28}
+                  // brightness-0 makes the image purely black
+                  className="w-7 h-7 object-contain brightness-0" 
+                />
               </div>
               
               <h3 className="text-ink text-lg font-medium mb-3">
@@ -70,7 +75,6 @@ export default function Features() {
                 {f.description}
               </p>
               
-              {/* Subtle background glow on hover */}
               <div 
                 className="absolute -bottom-8 -right-8 w-24 h-24 rounded-full opacity-0 group-hover:opacity-20 transition-opacity duration-500"
                 style={{ background: "radial-gradient(circle, var(--accent) 0%, transparent 70%)" }}

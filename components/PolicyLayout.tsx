@@ -2,10 +2,10 @@ import Link from "next/link";
 import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { ReactNode } from "react";
+import React, { ReactNode } from "react";
 
 interface PolicyLayoutProps {
-  badge: string;
+  // Removed badge from interface
   title: string;
   meta?: string;
   heroBg?: "light" | "dark";
@@ -14,7 +14,7 @@ interface PolicyLayoutProps {
 }
 
 export default function PolicyLayout({
-  badge,
+  // Removed badge from destructuring
   title,
   meta,
   heroBg = "light",
@@ -33,15 +33,8 @@ export default function PolicyLayout({
               : "bg-gradient-to-br from-cream to-blush/60"
           }`}
         >
-          <span
-            className={`inline-flex items-center gap-2 text-xs font-medium tracking-widest uppercase px-4 py-1.5 rounded-full mb-5 border ${
-              heroBg === "dark"
-                ? "bg-accent/20 text-accent border-accent/20"
-                : "bg-accent-light text-accent border-accent/20"
-            }`}
-          >
-            {badge}
-          </span>
+          {/* Badge span section removed entirely from here */}
+          
           <h1
             className={`font-playfair text-3xl sm:text-5xl mb-3 ${
               heroBg === "dark" ? "text-cream" : "text-ink"
