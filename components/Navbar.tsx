@@ -24,7 +24,6 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close menu on route change
   useEffect(() => {
     setMenuOpen(false);
   }, [pathname]);
@@ -85,14 +84,6 @@ export default function Navbar() {
 
             {/* Desktop CTA */}
             <div className="hidden md:flex items-center gap-3">
-              <a
-                href="https://testflight.apple.com/join/eGXwRXrS"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm text-stone hover:text-ink transition-colors font-dm"
-              >
-                Beta Testing
-              </a>
               <Link
                 href="/#beta"
                 onClick={(e) => handleAnchorClick(e, "/#beta")}
@@ -136,15 +127,7 @@ export default function Navbar() {
                 {link.label}
               </Link>
             ))}
-            <div className="pt-3 flex flex-col gap-2">
-              <a
-                href="https://testflight.apple.com/join/eGXwRXrS"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block px-3 py-3 text-center border border-sand rounded-xl text-sm text-stone hover:text-ink hover:border-ink transition-colors font-dm"
-              >
-                Join Beta Testing
-              </a>
+            <div className="pt-3">
               <Link
                 href="/#beta"
                 onClick={(e) => handleAnchorClick(e, "/#beta")}

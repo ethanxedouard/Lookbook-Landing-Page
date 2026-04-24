@@ -109,7 +109,7 @@ export default function Hero() {
       >
         <div className="relative w-full h-full max-w-[800px]">
           <Image
-            src="/Preview.png"
+            src="/RealSSPreview.png"
             alt="App previews"
             fill
             className="object-contain"
