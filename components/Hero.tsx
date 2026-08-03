@@ -2,6 +2,7 @@
 
 import { motion, Variants, Easing } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 
 const staggerChildren: Variants = {
   animate: {
@@ -81,11 +82,11 @@ export default function Hero() {
             className="inline-flex items-center gap-2 px-6 py-3 bg-black text-white text-sm font-medium rounded-full border-2 border-ink hover:bg-ink/5 transition-all duration-200 hover:-translate-y-0.5"
           >
             {/* Changed ONLY this one to an Image component */}
-            <Image 
-              src="/arrow-down.svg" 
-              alt="" 
-              width={18} 
-              height={18} 
+            <Image
+              src="/arrow-down.svg"
+              alt=""
+              width={18}
+              height={18}
               className="w-4.5 h-4.5"
             />
             Download App
@@ -98,6 +99,34 @@ export default function Hero() {
           >
             Explore Features
           </a>
+        </motion.div>
+
+        {/* Style quiz teaser */}
+        <motion.div variants={fadeUp} className="mt-6">
+          <Link
+            href="/quiz"
+            className="group inline-flex items-center gap-3 bg-white/70 backdrop-blur-sm border border-accent/20 rounded-full pl-2 pr-5 py-2 hover:border-accent/40 hover:bg-white transition-all duration-200"
+          >
+            <span className="flex items-center justify-center w-8 h-8 rounded-full bg-accent-light text-accent text-sm shrink-0">
+              ✦
+            </span>
+            <span className="text-sm text-ink">
+              <span className="font-medium">Take the Closet Quiz</span>
+              <span className="text-stone"> — get your score in 60 seconds</span>
+            </span>
+            <svg
+              className="w-4 h-4 text-stone group-hover:translate-x-0.5 group-hover:text-accent transition-all duration-200"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M5 12h14" />
+              <path d="M13 6l6 6-6 6" />
+            </svg>
+          </Link>
         </motion.div>
       </motion.div>
 
