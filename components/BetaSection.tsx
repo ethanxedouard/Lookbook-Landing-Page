@@ -3,6 +3,11 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import FadeInSection from "./FadeInSection";
+import InAppBrowserModal from "./InAppBrowserModal";
+import { isInAppBrowser, attemptBreakout } from "@/lib/inAppBrowserFix";
+
+const APP_STORE_URL =
+  "https://apps.apple.com/us/app/lookbook-virtual-closet/id6760507376";
 
 export default function BetaSection() {
   const [name, setName] = useState("");
@@ -10,6 +15,7 @@ export default function BetaSection() {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [showFallback, setShowFallback] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -36,6 +42,17 @@ export default function BetaSection() {
     } finally {
       setLoading(false);
     }
+  };
+
+  const handleDownloadClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (!isInAppBrowser()) return; // normal browser: let the real link behave
+    e.preventDefault();
+    attemptBreakout(APP_STORE_URL, () => setShowFallback(true));
+  };
+
+  const handleRetry = () => {
+    setShowFallback(false);
+    attemptBreakout(APP_STORE_URL, () => setShowFallback(true));
   };
 
   return (
@@ -70,7 +87,8 @@ export default function BetaSection() {
 
             {/* App Store Button */}
             <motion.a
-              href="https://apps.apple.com/us/app/lookbook-virtual-closet/id6760507376"
+              href={APP_STORE_URL}
+              onClick={handleDownloadClick}
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.03 }}
@@ -146,6 +164,14 @@ export default function BetaSection() {
               )}
             </div>
           </div>
+
+          {showFallback && (
+            <InAppBrowserModal
+              appStoreUrl={APP_STORE_URL}
+              onRetry={handleRetry}
+              onClose={() => setShowFallback(false)}
+            />
+          )}
         </div>
       </FadeInSection>
     </section>
