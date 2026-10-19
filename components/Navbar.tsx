@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import DownloadButton from "./DownloadButton";
 
 const navLinks = [
   { href: "/#features", label: "Features" },
@@ -84,13 +85,7 @@ export default function Navbar() {
 
             {/* Desktop CTA */}
             <div className="hidden md:flex items-center gap-3">
-              <Link
-                href="/#beta"
-                onClick={(e) => handleAnchorClick(e, "/#beta")}
-                className="px-5 py-2 bg-ink text-cream text-sm font-medium rounded-full hover:bg-charcoal transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md font-dm"
-              >
-                Download App →
-              </Link>
+              <DownloadButton className="px-5 py-2 bg-ink text-cream text-sm font-medium rounded-full hover:bg-charcoal transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md font-dm">Download App →</DownloadButton>
             </div>
 
             {/* Mobile hamburger */}
@@ -128,13 +123,7 @@ export default function Navbar() {
               </Link>
             ))}
             <div className="pt-3">
-              <Link
-                href="/#beta"
-                onClick={(e) => handleAnchorClick(e, "/#beta")}
-                className="block px-3 py-3 text-center bg-ink text-cream rounded-xl text-sm font-medium hover:bg-charcoal transition-colors font-dm"
-              >
-                Download App →
-              </Link>
+              <DownloadButton className="block px-3 py-3 text-center bg-ink text-cream rounded-xl text-sm font-medium hover:bg-charcoal transition-colors font-dm">Download App →</DownloadButton>
             </div>
           </div>
         </div>

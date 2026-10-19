@@ -41,9 +41,26 @@ export default function Testimonials() {
           What Our Community Says
         </h2>
         <p className="text-stone font-light leading-relaxed max-w-xl">
-          Tens of thousands of style lovers trust Lookbook to manage their
-          wardrobes and elevate their daily routines.
+          Real feedback from people using Lookbook to get more out of the
+          clothes they already own.
         </p>
+      </FadeInSection>
+
+      {/* Update these as the numbers change */}
+      <FadeInSection delay={0.1}>
+        <dl className="mt-10 grid grid-cols-3 gap-4 max-w-xl">
+          {[
+            ["5.0★", "App Store rating"],
+            ["950+", "total downloads"],
+            ["72.6%", "growth, last 3 months"],
+          ].map(([v, l]) => (
+            <div key={l} className="border-t border-sand pt-3">
+              <dt className="sr-only">{l}</dt>
+              <dd className="font-playfair text-3xl sm:text-4xl text-ink">{v}</dd>
+              <p className="text-xs text-stone mt-1">{l}</p>
+            </div>
+          ))}
+        </dl>
       </FadeInSection>
 
       {/* Grid: 3 columns for 3 testimonials */}

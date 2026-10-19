@@ -73,16 +73,16 @@ export default function BetaSection() {
           />
 
           <div className="relative z-10">
-            <span className="inline-flex items-center gap-2 bg-accent/20 text-accent text-xs font-medium tracking-widest uppercase px-4 py-1.5 rounded-full mb-6 border border-accent/20">
+            <span className="inline-flex items-center gap-2 bg-accent/20 text-accent-light text-xs font-medium tracking-widest uppercase px-4 py-1.5 rounded-full mb-6 border border-accent/20">
               ✦ Now Available
             </span>
 
             <h2 className="font-playfair text-3xl sm:text-4xl lg:text-5xl text-cream mb-4">
-              Ready to Reinvent<br />Your Wardrobe?
+              Your closet<br />is waiting.
             </h2>
             <p className="text-sand font-light text-base sm:text-lg mb-10 max-w-lg mx-auto leading-relaxed">
-              Download the app and join our community. Be among the first to
-              experience Lookbook and help shape the future of personal style.
+              Download Lookbook free on the App Store and start building outfits
+              from the clothes you already own.
             </p>
 
             {/* App Store Button */}

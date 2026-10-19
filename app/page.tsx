@@ -1,6 +1,6 @@
-import BetaBanner from "@/components/BetaBanner";
 import Hero from "@/components/Hero";
 import MarqueeStrip from "@/components/MarqueeStrip";
+import Problem from "@/components/Problem";
 import Features from "@/components/Features";
 import HowItWorks from "@/components/HowItWorks";
 import Testimonials from "@/components/Testimonials";
@@ -15,6 +15,7 @@ export default function HomePage() {
       <main>
         <Hero />
         <MarqueeStrip />
+        <Problem />
         <Features />
         <HowItWorks />
         <Testimonials />

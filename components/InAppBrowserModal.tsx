@@ -47,9 +47,11 @@ export default function InAppBrowserModal({ appStoreUrl, onRetry, onClose }: Pro
           {/* Hanger mark, consistent with the site's logo */}
           <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full border border-black/10 bg-white shadow-sm">
             <Image
-              src="/LookbookLogo.png"
+              src="/lookbookLogo.png"
               alt="The Lookbook"
               width={32}
+              height={32}
+              style={{ height: "auto" }}
               className="object-contain"
             />
           </div>

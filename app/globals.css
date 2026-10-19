@@ -102,3 +102,40 @@ body {
   outline: 2px solid var(--accent);
   outline-offset: 2px;
 }
+
+/* ---- Polish layer ---- */
+
+/* Large type gets tighter tracking; body stays at 0 */
+h1,
+h2 {
+  letter-spacing: -0.02em;
+}
+
+/* Instant press feedback on primary actions */
+.btn-press {
+  transition: transform 100ms ease-out, background-color 200ms, box-shadow 200ms;
+}
+.btn-press:active {
+  transform: scale(0.97);
+}
+
+/* Reduced motion: no looping or parallax-style movement */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .marquee-track,
+  .phone-float-main,
+  .phone-float-left,
+  .phone-float-right {
+    animation: none;
+  }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .nav-glass {
+    background: var(--warm-white);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+}

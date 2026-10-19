@@ -4,7 +4,7 @@ const socialLinks = [
   { href: "https://www.instagram.com/trythelookbook/", label: "Instagram" },
   { href: "https://www.tiktok.com/@trythelookbook", label: "TikTok" },
   { href: "https://x.com/trythelookbook", label: "X (Twitter)" },
-  { href: "https://testflight.apple.com/join/eGXwRXrS", label: "Beta" },
+  { href: "https://apps.apple.com/us/app/lookbook-virtual-closet/id6760507376", label: "App Store" },
   { href: "mailto:trythelookbook@gmail.com", label: "Contact" },
 ];
 

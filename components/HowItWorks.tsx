@@ -1,3 +1,4 @@
+import Image from "next/image";
 import FadeInSection from "./FadeInSection";
 
 const steps = [
@@ -7,18 +8,24 @@ const steps = [
     description:
       "Add your clothes in seconds by snapping a photo or importing images from your camera roll.",
     active: true,
+    img: "/screens/item-upload.png",
+    alt: "Quick upload screen: snap a photo of a piece to add it",
   },
   {
     num: "2",
     title: "Organize",
     description:
       "Keep your wardrobe structured by sorting items with categories, colors, seasons, and custom tags.",
+    img: "/screens/closet-mockup.png",
+    alt: "Closet screen with search and filters",
   },
   {
     num: "3",
     title: "Style",
     description:
       "Create outfits by combining pieces from your closet, then save your favorite looks for later.",
+    img: "/screens/outfit.png",
+    alt: "Outfit builder with a complete outfit",
   },
 ];
 
@@ -65,6 +72,9 @@ export default function HowItWorks() {
                 <p className="text-stone text-sm leading-relaxed font-light max-w-xs">
                   {step.description}
                 </p>
+                <div className="mt-8 w-full max-w-[210px] overflow-hidden rounded-[28px] border border-sand/60 bg-white shadow-xl shadow-ink/10">
+                  <Image src={step.img} alt={step.alt} width={483} height={1049} sizes="210px" className="w-full h-auto" />
+                </div>
               </div>
             </FadeInSection>
           ))}
